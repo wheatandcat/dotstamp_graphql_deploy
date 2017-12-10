@@ -1,0 +1,33 @@
+version: '2'
+services:
+  mysql-data:
+    container_name: mysql-data
+    image: busybox
+    volumes:
+      - /data/mysql
+  db:
+    image: groonga/mroonga
+    ports:
+        - "3306:3306"
+    expose:
+      - 3306
+    volumes_from:
+      - mysql-data
+  app:
+    image: dotstamp_graphql:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  webapp:
+    image: dotstamp_graphql_client:latest
+    command: pushstate-server .
+    ports:
+      - "9000:9000"
+  proxy:
+    image: dotstamp_graphql_deploy:latest
+    links:
+      - app:app
+      - webapp:webapp
+    ports:
+      - 80:80
