@@ -6,4 +6,4 @@ docker build --tag="dotstamp_graphql_client:latest" .
 
 cd /usr/local/app/
 
-docker-compose restart webapp
+docker-compose up -d webapp

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd /usr/local/app/dotstamp_graphql
+cd /app/dotstamp_graphql
 git pull origin master
 docker build --tag="dotstamp_graphql:latest" .
 
-cd /usr/local/app/
+cd /app/
 
-docker-compose restart app
+docker-compose up -d app

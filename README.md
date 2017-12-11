@@ -33,7 +33,15 @@ sh backend_deploy.sh
 sh frontend_deploy.sh
 ```
 
+### status
+```
+docker-compose ps
+```
+
 ### stop
 ```
 docker-compose stop
 ```
+
+# daemo
+http://dotstampv2.com/
