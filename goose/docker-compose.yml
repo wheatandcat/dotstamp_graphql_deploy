@@ -2,4 +2,6 @@ version: '2'
 services:
   goose:
     image: goose:latest
-    command: /go/bin/goose -env test up
+    command: /go/bin/goose -env production up
+    volumes:
+      - $PWD/goose/:/app
