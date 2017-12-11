@@ -1,15 +1,38 @@
 # dotstamp_graphql_deploy
 
-### start
-docker-compose up -d
+### Install Docker Compose (for centOS)
+```
+sudo yum update
+sudo yum install docker-io
+service docker status
+sudo service docker start
+sudo mkdir -p /opt/bin
+sudo sh -c 'curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` > /opt/bin/docker-compose'
+sudo chmod +x /opt/bin/docker-compose
+```
 
-
-## proxy docker build
+### proxy docker build
+```
 docker build --tag="dotstamp_graphql_deploy:latest" .
+```
+
+## db
+mkdir  goose/db/
+cp -r dotstamp_graphql/db/migrations goose/db/
+docker-compose -f goose/docker-compose.yml run
+
+### start
+```
+docker-compose up -d
+```
 
 ### deploy
+```
 sh backend_deploy.sh
 sh frontend_deploy.sh
+```
 
 ### stop
+```
 docker-compose stop
+```

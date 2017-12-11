@@ -15,15 +15,11 @@ services:
       - mysql-data
   app:
     image: dotstamp_graphql:latest
-    ports:
-      - "8080:8080"
     depends_on:
       - db
   webapp:
     image: dotstamp_graphql_client:latest
     command: pushstate-server .
-    ports:
-      - "9000:9000"
   proxy:
     image: dotstamp_graphql_deploy:latest
     links:
