@@ -17,9 +17,10 @@ docker build --tag="dotstamp_graphql_deploy:latest" .
 ```
 
 ## db
-mkdir  goose/db/
+docker build --tag="goose:latest" ./goose
+mkdir goose/db/
 cp -r dotstamp_graphql/db/migrations goose/db/
-docker-compose -f goose/docker-compose.yml run
+docker-compose -f goose/docker-compose.yml run goose
 
 ### start
 ```
