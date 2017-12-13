@@ -1,7 +1,7 @@
 {
   "scripts": [
     {
-      "command": "sh /app/dotstamp_graphql_deploy/backend_deploy.sh",
+      "command": "/app/dotstamp_graphql_deploy/forntend_deploy.sh",
       "args": []
     }
   ]
