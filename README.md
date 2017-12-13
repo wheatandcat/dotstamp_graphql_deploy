@@ -50,7 +50,6 @@ docker-compose stop
 go get github.com/bketelsen/captainhook
 
 captainhook -configdir ~/captainhook
-
 ```
 
 ### test
@@ -58,6 +57,9 @@ captainhook -configdir ~/captainhook
 curl -X POST http://dotstampv2.com:8080/deploy_backend
 curl -X POST http://dotstampv2.com:8080/deploy_forntend
 ```
+
+### daemon
+sudo cp captainhook_web.service /etc/systemd/system/
 
 # daemo
 http://dotstampv2.com/
