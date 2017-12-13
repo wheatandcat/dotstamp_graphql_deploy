@@ -1,0 +1,10 @@
+[Unit]
+Description = deploy webhook
+
+[Service]
+ExecStart = /home/worker/go/bin/captainhook -listen-addr=0.0.0.0:8080 -echo -configdir /app/dotstamp_graphql_deploy/captainhook/
+Restart = always
+Type = simple
+
+[Install]
+WantedBy = multi-user.target
