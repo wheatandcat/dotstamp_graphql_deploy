@@ -1,6 +1,6 @@
 # dotstamp_graphql_deploy
 
-### Install Docker Compose (for centOS)
+### Install Docker Compose (for centOS7)
 ```
 sudo yum update
 sudo yum install docker-io
@@ -17,10 +17,12 @@ docker build --tag="dotstamp_graphql_deploy:latest" .
 ```
 
 ## db
+```
 docker build --tag="goose:latest" ./goose
 mkdir goose/db/
 cp -r dotstamp_graphql/db/migrations goose/db/
 docker-compose run goose
+```
 
 ### start
 ```
@@ -52,14 +54,18 @@ go get github.com/bketelsen/captainhook
 captainhook -configdir ~/captainhook
 ```
 
-### test
+### webhook deploy
 ```
 curl -X POST http://dotstampv2.com:8080/deploy_backend
 curl -X POST http://dotstampv2.com:8080/deploy_forntend
 ```
 
 ### daemon
+```
 sudo cp captainhook_web.service /etc/systemd/system/
+sudo systemctl enable captainhook_web.service
+sudo systemctl start captainhook_web.service
+```
 
 # daemo
 http://dotstampv2.com/
