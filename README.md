@@ -43,10 +43,19 @@ docker-compose ps
 docker-compose stop
 ```
 
-### captainhook
+## captainhook
+
+### start
 ```
+go get github.com/bketelsen/captainhook
+
 captainhook -configdir ~/captainhook
 
+```
+
+### test
+```
+curl -X POST http://dotstampv2.com:8080/deploy_backend
 ```
 
 # daemo
