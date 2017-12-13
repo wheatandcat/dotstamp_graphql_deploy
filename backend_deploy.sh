@@ -6,4 +6,5 @@ docker build --tag="dotstamp_graphql:latest" .
 
 cd /app/dotstamp_graphql_deploy/
 
+docker-compose run goose
 docker-compose up -d app

@@ -20,7 +20,7 @@ docker build --tag="dotstamp_graphql_deploy:latest" .
 docker build --tag="goose:latest" ./goose
 mkdir goose/db/
 cp -r dotstamp_graphql/db/migrations goose/db/
-docker-compose -f goose/docker-compose.yml run goose
+docker-compose run goose
 
 ### start
 ```
@@ -56,6 +56,7 @@ captainhook -configdir ~/captainhook
 ### test
 ```
 curl -X POST http://dotstampv2.com:8080/deploy_backend
+curl -X POST http://dotstampv2.com:8080/deploy_forntend
 ```
 
 # daemo

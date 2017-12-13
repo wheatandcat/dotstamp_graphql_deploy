@@ -29,3 +29,8 @@ services:
       - webapp:webapp
     ports:
       - 80:80
+  goose:
+    image: goose:latest
+    command: /go/bin/goose -env production up
+    volumes:
+      - $PWD/goose/:/app
