@@ -43,5 +43,11 @@ docker-compose ps
 docker-compose stop
 ```
 
+### captainhook
+```
+captainhook -configdir ~/captainhook
+
+```
+
 # daemo
 http://dotstampv2.com/
